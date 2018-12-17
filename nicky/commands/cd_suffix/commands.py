@@ -5,7 +5,7 @@ import click
 @click.argument('action')
 @click.argument('genre')
 @click.argument('value')
-@click.option('--lang', default='ko', help='language')
+@click.option('--lang', '-l', default='ko', help='language')
 def suffix(action, genre, value, lang):
     pass
 
