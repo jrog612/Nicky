@@ -82,7 +82,7 @@ class SourceManager:
             f = self.loader.get_suffix_file(genre, 'w')
             self.write([], li, f)
 
-    def pre_ordering(self):
+    def pre_sorting(self):
         li = self.loader.get_prefix_list()
         f = self.loader.get_prefix_file('w')
         self.write([], li, f)
