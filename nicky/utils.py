@@ -29,19 +29,25 @@ class Loader:
         self.lang = lang
 
     def get_prefix_file(self, mode='r'):
-        path = os.path.join(PathManager.prefix_path(self.lang), 'prefix.txt')
-        return open(path, mode)
+        return open(os.path.join(PathManager.prefix_path(self.lang), 'prefix.txt'), mode)
 
     def get_suffix_file(self, genre, mode='r'):
-        path = os.path.join(PathManager.suffix_path(self.lang), '{}.txt'.format(genre))
-        return open(path, mode)
+        return open(os.path.join(PathManager.suffix_path(self.lang), '{}.txt'.format(genre)), mode)
 
     def get_suffix_file_list(self):
-        pass
+        return list(os.listdir(PathManager.suffix_path(self.lang)))
 
     def get_suffix_list(self, genre=None):
         if genre:
-            file = self.get_suffix_file(genre)
+            return [i for i in self.get_suffix_file(genre).read().split('\n') if i]
+        else:
+            genre_list = [i.replace('.txt', '') for i in self.get_suffix_file_list()]
+            ret_data = []
+
+            for gn in genre_list:
+                ret_data.extend(self.get_suffix_list(gn))
+
+            return sorted(ret_data)
 
     def get_prefix_list(self):
-        pass
+        return [i for i in self.get_prefix_file().read().split('\n') if i]
