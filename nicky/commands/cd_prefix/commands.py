@@ -1,6 +1,6 @@
 import click
 
-from managers.source import SourceManager
+from managers import SourceManager
 
 
 @click.group(help='prefix source managing')

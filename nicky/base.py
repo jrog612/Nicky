@@ -1,12 +1,12 @@
 import random
 
-from managers.source import Loader
+from managers import LoadManager
 
 
 class Nicky:
     def __init__(self, lang='ko'):
         self.lang = lang
-        self.loader = Loader(lang)
+        self.loader = LoadManager(lang)
 
     def get_nickname(self, count=1, suffix_genre=None):
         prefix = self.loader.get_prefix_list()

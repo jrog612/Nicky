@@ -1,9 +1,25 @@
 import os
 
-from utils import PathManager
+from utils import SOURCE_PATH, SUPPORT_LANG_LIST
 
 
-class Loader:
+class PathManager:
+    @classmethod
+    def lang_path(cls, lang='ko'):
+        if lang not in SUPPORT_LANG_LIST:
+            raise ValueError('unsupported language.')
+        return os.path.join(SOURCE_PATH, lang)
+
+    @classmethod
+    def suffix_path(cls, lang='ko'):
+        return os.path.join(cls.lang_path(lang), 'suffix')
+
+    @classmethod
+    def prefix_path(cls, lang='ko'):
+        return os.path.join(cls.lang_path(lang), 'prefix.txt')
+
+
+class LoadManager:
     def __init__(self, lang='ko'):
         self.lang = lang
 
@@ -35,7 +51,7 @@ class Loader:
 class SourceManager:
     def __init__(self, lang='ko'):
         self.lang = lang
-        self.loader = Loader(lang)
+        self.loader = LoadManager(lang)
 
     def write(self, values, item_list, f):
         for v in values:

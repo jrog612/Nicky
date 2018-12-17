@@ -1,6 +1,6 @@
 import click
 
-from managers.source import SourceManager
+from managers import SourceManager
 
 
 @click.group(help='suffix source managing')
@@ -16,5 +16,3 @@ def add(genre, values, lang):
     value_list = values.split(',')
     sm = SourceManager(lang)
     sm.suf_add(genre, value_list)
-
-
