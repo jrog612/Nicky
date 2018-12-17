@@ -27,9 +27,10 @@ class LoadManager:
         return open(PathManager.prefix_path(self.lang), mode)
 
     def get_suffix_file(self, genre, mode='r'):
-        if genre not in self.get_suffix_file_list():
-            open(os.path.join(PathManager.suffix_path(self.lang), '{}.txt'.format(genre)), 'w').close()
-        return open(os.path.join(PathManager.suffix_path(self.lang), '{}.txt'.format(genre)), mode)
+        path = os.path.join(PathManager.suffix_path(self.lang), '{}.txt'.format(genre))
+        if not os.path.exists(path):
+            open(path, 'w').close()
+        return open(path, mode)
 
     def get_suffix_file_list(self):
         return list(os.listdir(PathManager.suffix_path(self.lang)))
@@ -75,7 +76,7 @@ class SourceManager:
 
     def suf_ordering(self, genre=None):
         if genre is None:
-            for g in self.loader.get_suffix_file_list():
+            for g in [i.replace('.txt', '') for i in self.loader.get_suffix_file_list()]:
                 self.suf_ordering(g)
         else:
             li = self.loader.get_suffix_list(genre)
