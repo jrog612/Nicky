@@ -16,3 +16,11 @@ def add(genre, values, lang):
     value_list = values.split(',')
     sm = SourceManager(lang)
     sm.suf_add(genre, value_list)
+
+
+@suffix.command(help='Ordering suffix file')
+@click.argument('genre', default=None)
+@click.option('--lang', '-l', default='ko', help='language')
+def ordering(genre, lang):
+    sm = SourceManager(lang)
+    sm.suf_ordering(genre)

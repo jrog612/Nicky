@@ -15,3 +15,10 @@ def add(values, lang):
     value_list = values.split(',')
     sm = SourceManager(lang)
     sm.pre_add(value_list)
+
+
+@prefix.command(help='Ordering prefix file')
+@click.option('--lang', '-l', default='ko', help='language')
+def ordering(lang):
+    sm = SourceManager(lang)
+    sm.pre_ordering()
