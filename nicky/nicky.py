@@ -1,24 +1,23 @@
+#! /usr/bin/env python
+import importlib
+import os
 
-class LoadMixin:
-    def load_prefix(self, lang='ko'):
-        lang_path = self.get_lang_path(lang)
-        prefix_path = os.path.join(lang_path, 'prefix')
+import click
 
-    def get_lang_path(self, lang='ko'):
-        lang_path = os.path.join(SOURCE_PATH, lang)
-        if not os.path.isdir(lang_path):
-            raise ValueError('Invalid language.')
-
-        return lang_path
-
-    def load_suffix(self, lang='ko'):
-        lang_path = self.get_lang_path(lang)
-        suffix_path = os.path.join(lang_path, 'suffix')
+from utils import COMMANDS_PATH
 
 
-class Nicky:
-    def __init__(self, lang='ko'):
-        self.lang = lang
+@click.group()
+def cli():
+    pass
 
-    def get_nickname(self, count=1):
-        pass
+
+for i in os.listdir(COMMANDS_PATH):
+    if i.find('cd_') == 0:
+        module = importlib.import_module('commands.{}'.format(i))
+        cli.add_command(getattr(module, i.replace('cd_', '')))
+    else:
+        continue
+
+if __name__ == '__main__':
+    cli()
