@@ -1,7 +1,3 @@
-import os
-
-SOURCE_PATH = 'source'
-
 
 class LoadMixin:
     def load_prefix(self, lang='ko'):
