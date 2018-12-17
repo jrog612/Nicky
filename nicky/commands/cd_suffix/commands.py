@@ -1,5 +1,7 @@
 import click
 
+from managers.source import SourceManager
+
 
 @click.group(help='suffix source managing')
 def suffix():
@@ -12,4 +14,7 @@ def suffix():
 @click.option('--lang', '-l', default='ko', help='language')
 def add(genre, values, lang):
     value_list = values.split(',')
+    sm = SourceManager(lang)
+    sm.suf_add(genre, value_list)
+
 

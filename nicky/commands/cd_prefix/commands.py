@@ -1,5 +1,7 @@
 import click
 
+from managers.source import SourceManager
+
 
 @click.group(help='prefix source managing')
 def prefix():
@@ -7,8 +9,9 @@ def prefix():
 
 
 @prefix.command('add', help='add new prefix')
-@click.argument('action')
 @click.argument('values')
 @click.option('--lang', '-l', default='ko', help='language')
-def add(action, value, lang):
-    pass
+def add(values, lang):
+    value_list = values.split(',')
+    sm = SourceManager(lang)
+    sm.pre_add(value_list)
