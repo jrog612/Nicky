@@ -69,6 +69,22 @@ class SourceManager:
         f.write('\n'.join(item_list))
         f.close()
 
+    def copy(self, path):
+        path = path + '/{}'.format(self.lang)
+        if not os.path.exists(path):
+            os.mkdir(path)
+        if not os.path.exists(path + '/suffix'):
+            os.mkdir(path + '/suffix')
+
+        for sfile in self.loader.get_suffix_file_list():
+            slist = self.loader.get_suffix_list(sfile.replace('.txt', ''))
+            with open(path + '/suffix/{}'.format(sfile), 'w') as f:
+                f.write('\n'.join(slist))
+
+        plist = self.loader.get_prefix_list()
+        with open(path + '/prefix.txt', 'w') as f:
+            f.write('\n'.join(plist))
+
     def suf_add(self, genre, values):
         li = self.loader.get_suffix_list(genre)
         f = self.loader.get_suffix_file(genre, 'w')
