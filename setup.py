@@ -49,6 +49,8 @@ class UploadCommand(Command):
         try:
             self.status('Removing previous builds…')
             rmtree(os.path.join(here, 'dist'))
+            rmtree(os.path.join(here, 'build'))
+            rmtree(os.path.join(here, 'nicky.egg-info'))
         except OSError:
             pass
 
