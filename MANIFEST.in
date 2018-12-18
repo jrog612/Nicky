@@ -1,1 +1,2 @@
 recursive-include nicky *.txt
+exclude nicky-cli.py
