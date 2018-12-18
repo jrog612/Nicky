@@ -1,6 +1,7 @@
 import click
 
 from nicky.managers import SourceManager
+from nicky.utils import PREFIX_WORDS, SUFFIX_WORDS
 
 
 @click.command(help='Sorting suffix or prefix file')
@@ -8,13 +9,13 @@ from nicky.managers import SourceManager
 @click.option('--lang', '-l', default='ko', help='language')
 def sort(kind, lang):
     sm = SourceManager(lang)
-    if kind in ('p', 'pre', 'prefix'):
+    if kind in PREFIX_WORDS:
         sm.pre_sorting()
-    elif kind in ('s', 'suf', 'suffix'):
+    elif kind in SUFFIX_WORDS:
         sm.suf_ordering()
     elif not kind:
         sm.suf_ordering()
         sm.pre_sorting()
     else:
-        sm.suf_ordering(kind)
+        click.BadArgumentUsage('Invalid arguments: {}'.format(kind))
 

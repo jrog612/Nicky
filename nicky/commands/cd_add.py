@@ -1,6 +1,7 @@
 import click
 
 from nicky.managers import SourceManager
+from nicky.utils import PREFIX_WORDS, SUFFIX_WORDS
 
 
 @click.command(help='Add new suffix or Prefix. You can add multiple values with comma separated.')
@@ -11,7 +12,9 @@ def add(kind, values, lang):
     sm = SourceManager(lang)
     value_list = values.split(',')
 
-    if kind in ('p', 'pre', 'prefix'):
+    if kind in PREFIX_WORDS:
         sm.pre_add(value_list)
+    elif kind in SUFFIX_WORDS:
+        sm.suf_add(value_list)
     else:
-        sm.suf_add(kind, value_list)
+        click.BadArgumentUsage('Invalid arguments: {}'.format(kind))

@@ -7,3 +7,6 @@ COMMANDS_PATH = os.path.join(BASE_DIR, 'commands')
 SUPPORT_LANG_LIST = [
     'ko',
 ]
+
+PREFIX_WORDS = ('p', 'pre', 'prefix', 'pr')
+SUFFIX_WORDS = ('s', 'suf', 'suffix', 'su')
