@@ -1,6 +1,6 @@
 import click
 
-from managers import SourceManager
+from nicky.managers import SourceManager
 
 
 @click.command(help='Add new suffix or Prefix. You can add multiple values with comma separated.')

@@ -1,6 +1,6 @@
 import click
 
-from managers import SourceManager
+from nicky.managers import SourceManager
 
 
 @click.command(help='Sorting suffix or prefix file')

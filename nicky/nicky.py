@@ -4,7 +4,7 @@ import os
 
 import click
 
-from utils import COMMANDS_PATH
+from nicky.utils import COMMANDS_PATH
 
 
 @click.group()

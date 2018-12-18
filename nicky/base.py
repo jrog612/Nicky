@@ -1,6 +1,6 @@
 import random
 
-from managers import LoadManager
+from nicky.managers import LoadManager
 
 
 class Nicky:

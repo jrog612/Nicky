@@ -1,6 +1,6 @@
 import click
 
-from base import Nicky
+from nicky.base import Nicky
 
 
 @click.command(help='nickname generating')

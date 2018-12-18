@@ -1,6 +1,6 @@
 import os
 
-from utils import SOURCE_PATH, SUPPORT_LANG_LIST
+from nicky.utils import SOURCE_PATH, SUPPORT_LANG_LIST
 
 
 class PathManager:
