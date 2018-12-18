@@ -7,7 +7,7 @@ from nicky.base import Nicky
 @click.argument('count', default=1)
 @click.option('--genre', '-g', help='suffix genre')
 @click.option('--lang', '-l', default='ko', help='language')
-def name(count, genre, lang):
+def name(count, lang):
     nicky = Nicky(lang)
-    nickname = nicky.get_nickname(count, genre)
+    nickname = nicky.get_nickname(count)
     print('\n'.join(nickname))

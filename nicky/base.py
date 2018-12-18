@@ -8,7 +8,7 @@ class Nicky:
         self.lang = lang
         self.loader = LoadManager(lang)
 
-    def get_nickname(self, count=1, suffix_genre=None):
+    def get_nickname(self, count=1):
         prefix = self.loader.get_prefix_list()
-        suffix = self.loader.get_suffix_list(suffix_genre)
+        suffix = self.loader.get_suffix_list()
         return ['{} {}'.format(random.choice(prefix), random.choice(suffix)) for _ in range(count)]
