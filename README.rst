@@ -67,9 +67,11 @@ After then, you can use :code:`nicky-cli.py` to add your nickname prefix and suf
 
   You can add multiple values. Separate your values with comma like :code:`a,b,c`. Remember, there's no space.
 
-example)
+**example)**
 
 .. code::
 
     python3 nicky-cli.py add pre melon,potato,tomato --lang en
 ..
+
+After all, pull requests to master branch.
