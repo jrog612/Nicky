@@ -65,7 +65,7 @@ After then, you can use :code:`nicky-cli.py` to add your nickname prefix and suf
     python3 nicky-cli.py add [prefix|suffix|pre|suf|p|s] {values} [-l|--lang] {language}
 ..
 
-  You can add multiple values. Separate your values with comma like :code:`a,b,c`. Remember, there's no space.
+    You can add multiple values. Separate your values with comma like :code:`a,b,c`. Remember, there's no space.
 
 **example)**
 
