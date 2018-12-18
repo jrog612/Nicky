@@ -14,7 +14,7 @@ def cli():
 
 for i in [f for f in os.listdir(COMMANDS_PATH) if f.find('cd_') == 0]:
     name = i.replace('.py', '')
-    module = importlib.import_module('commands.{}'.format(name))
+    module = importlib.import_module('.commands.{}'.format(name))
     cli.add_command(getattr(module, name.replace('cd_', '')))
 
 if __name__ == '__main__':

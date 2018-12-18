@@ -14,7 +14,7 @@ URL = 'https://github.com/joyongjin/nicky'
 EMAIL = 'wnrhd114@gmail.com'
 AUTHOR = 'Jo Yongjin'
 REQUIRES_PYTHON = '>=3.5.3'
-VERSION = '0.0.2'
+VERSION = '0.0.1b5'
 
 REQUIRED = [
     'click'
@@ -72,7 +72,7 @@ setup(
     url=URL,
     packages=find_packages(exclude=('tests',)),
     entry_points={
-        'console_scripts': ['nicky=nicky.nicky:cli'],
+        'console_scripts': ['nicky=nicky.cli:cli'],
     },
     install_requires=REQUIRED,
     include_package_data=True,
@@ -86,6 +86,5 @@ setup(
     ],
     cmdclass={
         'upload': UploadCommand,
-
     }
 )
