@@ -14,7 +14,7 @@ URL = 'https://github.com/joyongjin/nicky'
 EMAIL = 'wnrhd114@gmail.com'
 AUTHOR = 'Jo Yongjin'
 REQUIRES_PYTHON = '>=3.5.3'
-VERSION = '0.0.1b5'
+VERSION = '1.0.0'
 
 REQUIRED = [
     'click'
