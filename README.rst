@@ -29,7 +29,7 @@ How to use
     > 향긋한 스테이크
     > 활기찬 사탕
     > 엄청난 순대
-
+..
 
 2. with code
 ^^^^^^^^^^^^
@@ -48,6 +48,7 @@ How to use
     > 향긋한 스테이크
     > 활기찬 사탕
     > 엄청난 순대
+..
 
 If you want more, just type :code:`nicky [command] --help`
 
@@ -61,5 +62,14 @@ After then, you can use :code:`nicky-cli.py` to add your nickname prefix and suf
 
 .. code::
 
-    python3 nicky-cli.py add [prefix|suffix|pre|suf|p|s] {comma separated nicknames with no space}
+    python3 nicky-cli.py add [prefix|suffix|pre|suf|p|s] {values} [-l|--lang] {language}
+..
 
+  You can add multiple values. Separate your values with comma like :code:`a,b,c`. Remember, there's no space.
+
+example)
+
+.. code::
+
+    python3 nicky-cli.py add pre melon,potato,tomato --lang en
+..
