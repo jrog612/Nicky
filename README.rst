@@ -36,18 +36,11 @@ How to use
 
 .. code::
 
-    git clone git@github.com:joyongjin/Nicky.git
-    cd Nicky
+    from nicky import Nicky
 
-    python3 ./nicky-cli name
-    > 향긋한 까치
-
-    python3 ./nicky-cli name 5
-    > 신성한 스콘
-    > 똘망똘망한 오미자차
-    > 향긋한 스테이크
-    > 활기찬 사탕
-    > 엄청난 순대
+    n = Nicky(lang='ko')
+    n.get_nicknames(3)
+    > ['신성한 스콘', '똘망똘망한 오미자차', '향긋한 스테이크']
 ..
 
 If you want more, just type :code:`nicky [command] --help`

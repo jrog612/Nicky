@@ -8,5 +8,5 @@ from nicky.base import Nicky
 @click.option('--lang', '-l', default='ko', help='language')
 def name(count, lang):
     nicky = Nicky(lang)
-    nickname = nicky.get_nickname(count)
+    nickname = nicky.get_nicknames(count)
     print('\n'.join(nickname))
