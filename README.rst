@@ -14,11 +14,7 @@ How to use
 
 .. code::
 
-    # install local env
     pip install nicky
-
-    # or install globally.
-    pip install --user nicky
 
     nicky name
     > 향긋한 까치
